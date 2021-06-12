@@ -122,16 +122,14 @@ yargs.command({
     },
   },
   handler: (args) => {
-    const { id, amount } = args;
+    // const { id } = args;
+    let { id, amount } = args;
     let listProduct = getListProduct();
-    const tongSoLuong = listProduct.reduce((tong, prd) => {
-      return (tong = prd.amount + 50);
-    }, 0);
-
     const index = listProduct.findIndex((prd) => prd.id == id);
+    Number(amount);
     if (index !== -1) {
       let product = listProduct[index];
-      product = { ...product, tongSoLuong };
+      product = { ...product, amount: (amount += 50) };
       listProduct[index] = product;
       updateListProduct(listProduct);
       console.log("cap nhap so luong thanh cong");
