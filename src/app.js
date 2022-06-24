@@ -32,6 +32,9 @@ yargs.command({
     description: {
       type: string,
     },
+    quality: {
+      type: string,
+    },
   },
   handler: (args) => {
     const { name, price, amount, description } = args;
